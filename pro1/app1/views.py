@@ -53,8 +53,8 @@ def product(request):
     if request.method == 'POST':
         title = request.POST['title']
         discribe = request.POST['discribe']
-        pro_img = request.POST['pro_img']
-        Product.objects.create(title=title,discription=discribe,pro_img=pro_img)
+        pro_img = request.FILES['pro_img']
+        Product.objects.create(title=title,pro_img=pro_img,discription=discribe)
         return redirect('/dashboard/')
          
 def updateuser(request,uid):
@@ -68,8 +68,10 @@ def delete(request,qk):
 
 def view_update(request):
     if request.method == 'POST':
-        title = request.POST['title']
-        discription = request.POST['discription']
-        pro_img = request.POST['img']
+        form_data = request.POST
+        title = form_data['title']
+        discription = form_data['discription']
+        pro_img = form_data['pro_img']
         Product.objects.create(title=title,discription=discription,pro_img=pro_img)
+        data = Product.objects.all()
         return redirect('/dashboard/')

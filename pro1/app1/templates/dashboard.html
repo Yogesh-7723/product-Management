@@ -117,7 +117,12 @@
                      
                         <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">{{ i.title }}</td>
                         <td class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">{{ i.discription }}</td>
-                        <td class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"><img src="{{i.pro_img}}" alt=' '></td>
+                        {% if i.pro_img %}
+                        <td class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"><img src="{{i.pro_img.url}}" height='50px' alt=' '></td>
+                        {% endif %}
+                      
+                        <td class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"><img src="{{pro_img.url}}" height='50px' alt=' '></td>
+                        
                         <td class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"><a href='/delete/{{i.id}}'>Delete</td>
                         <td class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"><a href='/update/{{i.id}}'>Update</td>
 

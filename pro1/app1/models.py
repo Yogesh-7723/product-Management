@@ -12,4 +12,4 @@ class Shopkiper(models.Model):
 class Product(models.Model):
     title = models.CharField(max_length=100,blank=True)
     discription = models.TextField()
-    pro_img  = models.FileField(upload_to="static\img",blank=True)
+    pro_img  = models.FileField(upload_to='upload/',blank=True)

@@ -79,17 +79,20 @@ button:hover {
     <h1>Sign Up</h1>
     <p>Please fill in this form to create an account.</p>
     <hr>
-     
+     <input type='hidden' value='{{data.uid}}'>
     <label for="title"><b>Title</b></label>
     <input type="text" placeholder="Enter name" name="title" value='{{data.title}}' required>
 
 
     <label for="discription"><b>Distription</b></label>
     <input type="text" placeholder="Enter Email" name="discription" value='{{data.discription}}' required>
-
-    <label for="img"><b>Image Upload</b></label>
-    <input type="text" placeholder="Enter Mobile Number"  name="img" value='{{data.pro_img}}' required>
     
+    {% if data.pro_img %}
+    <label for="pro_img"><b>Image Upload</b></label>
+    <input type="file" placeholder="Enter Mobile Number"  name="pro_img" value="{{ data.pro_img}}" required>
+    
+{% endif %}
+    <br><br>
     <label>
       <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
     </label>
